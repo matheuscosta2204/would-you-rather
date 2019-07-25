@@ -7,23 +7,23 @@ import { getUsers } from '../../actions/users';
 class Login extends React.Component {
     
     state = {
-        userId: null
+        user: {}
     }
 
     componentDidMount() {
         this.props.dispatch(getUsers()).then(res => {
             this.setState({
-                userId: this.props.users[0].id
+                user: this.props.usersArray[0]
             })
         });
     }
 
-    login = id => {
-        this.props.dispatch(setAuthedUser({ id }));
+    login = user => {
+        this.props.dispatch(setAuthedUser(user));
     }
     
     onChangeSelect = e => {
-        this.setState({ userId: e.target.value })
+        this.setState({ user: this.props.users[e.target.value] });
     }
 
     render() {
@@ -31,11 +31,11 @@ class Login extends React.Component {
             <div>
                 Login
                 <select onChange={e => this.onChangeSelect(e)}>
-                    {this.props.users.map(user => (
+                    {this.props.usersArray.map(user => (
                         <option key={user.id} value={user.id}>{user.name}</option>
                     ))}
                 </select>
-                <button onClick={() => this.login(this.state.userId)}>Logar</button>
+                <button onClick={() => this.login(this.state.user)}>Logar</button>
             </div>
         );
     }
@@ -43,9 +43,10 @@ class Login extends React.Component {
 
 function mapStateToProps ({ users }) {
     return { 
-        users: Object.keys(users).map(user => {
+        usersArray: Object.keys(users).map(user => {
             return users[user];
-        })
+        }),
+        users
     };
 }
 

@@ -2,7 +2,9 @@ import { SET_AUTHED_USER, UNSET_AUTHED_USER } from '../actions/authedUser';
 
 const initialState = {
     id: null,
-    name: null
+    name: null,
+    answers: [],
+    questions: [],
 }
 
 export default function user (state = initialState, action) {
@@ -11,7 +13,9 @@ export default function user (state = initialState, action) {
             return {
                 ...state,
                 id: action.user.id,
-                name: action.user.name
+                name: action.user.name,
+                answers: action.user.answers,
+                questions: action.user.questions
             }
         case UNSET_AUTHED_USER :
             return {

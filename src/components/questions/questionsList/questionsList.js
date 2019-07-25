@@ -1,10 +1,13 @@
 import React from 'react';
+import './questionsList.css';
 
 const questionsList = (props) => {
-    console.log(props.questions);
+    //console.log(props.questions);
     return (
-        <div>
-            Questions List
+        <div className="list-container">
+            {props.questions.map(question => (
+                <div>{question.id}</div>
+            ))}
         </div>
     );
 }
