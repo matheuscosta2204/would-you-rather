@@ -2,11 +2,10 @@ import React from 'react';
 import './questionsList.css';
 
 const questionsList = (props) => {
-    //console.log(props.questions);
     return (
         <div className="list-container">
             {props.questions.map(question => (
-                <div>{question.id}</div>
+                <div key={question.id} onClick={() => props.onClick(question.id)}>{question.id}</div>
             ))}
         </div>
     );

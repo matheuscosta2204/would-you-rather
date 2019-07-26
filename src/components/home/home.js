@@ -20,6 +20,10 @@ class Home extends React.Component {
 
     onChangeTab = (tab) => this.setState({ tab });
 
+    onClickQuestion = (id) => {
+        this.props.history.push(`/question/${id}`);
+    }
+
     render() {
         
         const unansweredClass = this.state.tab === 'unanswered' ? ["header-item", "active"] : ["header-item"];
@@ -42,7 +46,7 @@ class Home extends React.Component {
                                 onClick={() => this.onChangeTab('answered')}  
                                 className={answeredClass.join(' ')}>Answered Questions</div>
                         </div>
-                        <QuestionsList questions={questions} />
+                        <QuestionsList questions={questions} onClick={this.onClickQuestion}/>
                     </div>
                 </div>
             </CheckAuth>
@@ -55,7 +59,8 @@ function mapStateToProps ({ question, user }) {
         questions: Object.keys(question).map(key => {
             return question[key];
         }), 
-        user };
+        user 
+    };
 }
 
 export default connect(mapStateToProps)(Home);
