@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CheckAuth from '../login/loginVerification';
+import Vote from './vote/vote.js';
+import Details from './details/details.js';
 
 class Question extends React.Component {
 
@@ -17,9 +19,9 @@ class Question extends React.Component {
     _render = (id, question) => {
         if(id !== null && typeof question !== 'undefined') {
             if(question.optionOne.votes.includes(this.props.user.id) || question.optionTwo.votes.includes(this.props.user.id)) {
-                return <div>Details</div>
+                return <Details question={question} />
             } else {
-                return <div>Vote</div>
+                return <Vote question={question} />
             }
         }
         return <></>;

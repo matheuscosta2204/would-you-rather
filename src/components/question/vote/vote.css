@@ -1,0 +1,35 @@
+.box {
+    width: 30%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.vote-header {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.vote-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.title {
+    text-align: left;
+    padding: 10px;
+}
+
