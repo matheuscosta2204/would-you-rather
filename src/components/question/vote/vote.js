@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { saveQuestionAnswer } from '../../../actions/question';
 import './vote.css';
 
 class Vote extends React.Component {
@@ -13,8 +14,12 @@ class Vote extends React.Component {
         this.setState({ option: e.target.value });
     }
 
-    submit = () {
-        
+    submit = (authedUser, qid) => {
+        this.props.dispatch(saveQuestionAnswer({
+            authedUser,
+            qid,
+            answer: this.state.option
+        }));
     }
 
     render() {
@@ -27,7 +32,7 @@ class Vote extends React.Component {
                     </header>
                     <div className="vote-content">
                         <div>
-                            <img src={author.avatarURL} height={150} width={150} />
+                            <img src={author.avatarURL} height={150} width={150} alt="avatar" />
                         </div>
                         <div className="title">
                             <h1>Would You Rather...</h1>
@@ -44,7 +49,7 @@ class Vote extends React.Component {
                                     onChange={this.onOptionChanged} /> {this.props.question.optionTwo.text}
                             </div>
                             <div>
-                                <button onClick={this.submit} >Submit</button>
+                                <button onClick={() => this.submit(this.props.user.id, this.props.question.id)} >Submit</button>
                             </div>
                         </div>
                     </div>
@@ -54,9 +59,10 @@ class Vote extends React.Component {
     }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, user }) {
     return { 
-        users
+        users,
+        user
     };
 }
 

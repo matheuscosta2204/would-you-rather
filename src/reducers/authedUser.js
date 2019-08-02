@@ -1,4 +1,4 @@
-import { SET_AUTHED_USER, UNSET_AUTHED_USER } from '../actions/authedUser';
+import { SET_AUTHED_USER, UNSET_AUTHED_USER, SET_AUTHED_USER_ANSWER } from '../actions/authedUser';
 
 const initialState = {
     id: null,
@@ -22,6 +22,14 @@ export default function user (state = initialState, action) {
                 ...state,
                 id: null,
                 name: null
+            }
+        case SET_AUTHED_USER_ANSWER :
+            return {
+                ...state,
+                answers: {
+                    ...state.answers,
+                    [action.qid]: action.answer
+                }
             }
         default :
             return state

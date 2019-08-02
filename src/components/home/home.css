@@ -4,22 +4,25 @@
     align-items: center;
 }
 
+.box {
+    margin-top: 20px;
+    width: 600px;
+}
+
 .box-header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 10px;
-    padding: 5px;
-    background-color: gray;
 }
 
 .header-item {
     padding: 10px;
-    border: 1px solid black;
-    width: 250px;
+    box-shadow: 4px 4px 14px -5px rgba(0,0,0,0.75);
+    width: 50%;
     text-align: center;
-    margin: 1px;
     background-color: white;
+    margin: 1px 1px 5px 1px;
+    border-radius: 5px;
 }
 
 .header-item:hover, .active {
