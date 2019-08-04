@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import Login from './login';
+import { Redirect } from 'react-router-dom';
 
 const checkAuthentication = (props) => {
     if(props.user.id === null) {
         return (
-            <Login />
+            <Redirect to="/login" />
         );
     } else {
         return props.children;

@@ -9,7 +9,7 @@ class LeaderBoard extends React.Component {
     render() {
         return (
             <CheckAuth>
-                <div className="container">
+                <div className="leader-board-container">
                     {this.props.users.map(user => (
                         <Score key={user.id} user={user} />
                     ))}
