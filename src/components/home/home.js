@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import './home.css';
 import CheckAuth from '../login/loginVerification';
 import QuestionsList from '../questions/questionsList/questionsList';
-import { getQuestions } from '../../actions/question';
 
 class Home extends React.Component {
 
@@ -13,9 +12,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(getQuestions()).then(() => {
-            this.setState({ tab: 'unanswered' });
-        });
+        this.setState({ tab: 'unanswered' });
     }
 
     onChangeTab = (tab) => this.setState({ tab });
