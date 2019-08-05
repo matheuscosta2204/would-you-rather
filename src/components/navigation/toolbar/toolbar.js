@@ -8,8 +8,8 @@ import './toolbar.css';
 const toolbar = (props) => (
     <header className="header">
         <Link to="/" className="item">Home</Link>
-        <Link to="/new-question" className="item">New Question</Link>
-        <Link to="/leader-board" className="item">Leader Board</Link>
+        <Link to="/add" className="item">New Question</Link>
+        <Link to="/leaderboard" className="item">Leader Board</Link>
         {typeof props.user !== 'undefined' && 
             <div className="user-header">
                 <div className="user-item">{props.user.name}</div>

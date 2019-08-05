@@ -35,6 +35,9 @@ const details = (props) => {
                                     {optionOnePercent.toFixed(1)}%
                                 </div>
                             </div>
+                            <div>
+                                {props.question.optionOne.votes.length} out of {totalVotes} votes
+                            </div>
                         </div>
                         <div className={optionTwoBoxClass.join(' ')}>
                             Would you rather {props.question.optionTwo.text}?
@@ -43,6 +46,9 @@ const details = (props) => {
                                 <div style={{ width: `${optionTwoPercent}%`, backgroundColor: '#2DB79A', padding: 10, color: 'white', textAlign: 'center' }}>
                                     {optionTwoPercent.toFixed(1)}%
                                 </div>
+                            </div>
+                            <div>
+                                {props.question.optionTwo.votes.length} out of {totalVotes} votes
                             </div>
                         </div>
                     </div>

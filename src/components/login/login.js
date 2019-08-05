@@ -20,7 +20,7 @@ class Login extends React.Component {
 
     login = user => {
         this.props.dispatch(setAuthedUser(user));
-        this.props.history.push('');
+        //this.props.history.push('');
     }
     
     onChangeSelect = e => {

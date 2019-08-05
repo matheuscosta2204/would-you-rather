@@ -21,7 +21,7 @@ class NewQuestion extends React.Component {
             optionTwoText: this.state.optionTwoText, 
             author: this.props.user.id 
         })).then(res => {
-            this.props.history.push(`/question/${res.id}`);
+            this.props.history.push('');
         })
     }
 
