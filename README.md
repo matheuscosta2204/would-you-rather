@@ -1,4 +1,4 @@
-# My Reads
+# Would you rather
 
 Would you rather is a project developed in order to put in practice my studies with redux and react-redux.
 It is an area that:
